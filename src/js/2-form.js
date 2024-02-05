@@ -29,10 +29,13 @@ formRef.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  if (emailRef.value && messageRef.value) {
+  const trimmedEmail = emailRef.value.trim();
+  const trimmedMessage = messageRef.value.trim();
+
+  if (trimmedEmail && trimmedMessage) {
     console.log({
-      email: emailRef.value.trim(),
-      message: messageRef.value.trim(),
+      email: trimmedEmail,
+      message: trimmedMessage,
     });
     localStorage.removeItem('feedback-form-state');
     emailRef.value = '';
